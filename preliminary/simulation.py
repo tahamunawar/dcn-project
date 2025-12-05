@@ -9,7 +9,7 @@ from topology import generate_topology
 
 
 class NetworkSimulation:
-    def __init__(self, num_nodes=100, topo_type="random_geometric"):
+    def __init__(self, num_nodes=10000, topo_type="random_geometric"):
         print(f"Initializing {topo_type} topology with {num_nodes} nodes...")
         self.nx_graph = generate_topology(topo_type, num_nodes)
         self.graph = NetworkGraph(self.nx_graph)
@@ -85,7 +85,7 @@ class NetworkSimulation:
 
 if __name__ == "__main__":
     # Ensure graph is connected enough to be interesting, or use a grid
-    sim = NetworkSimulation(num_nodes=1000000, topo_type="barabasi_albert")
+    sim = NetworkSimulation(num_nodes=100000, topo_type="barabasi_albert")
 
     # Run from node 0
     res = sim.run_comparison(source_node=0)

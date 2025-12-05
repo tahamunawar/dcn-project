@@ -27,6 +27,7 @@ def generate_topology(type="random_geometric", n=100, **kwargs):
 
     # Add random weights
     for u, v in G.edges():
-        G[u][v]["weight"] = random.uniform(1.0, 10.0)
+        G[u][v]["weight"] = random.randint(1, 1000)
+        # random.uniform(1.0, 10.0) (Was previously this)
 
     return G
