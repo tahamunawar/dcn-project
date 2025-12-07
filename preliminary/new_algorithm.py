@@ -341,13 +341,13 @@ class BreakingSortingSSSP(RoutingAlgorithm):
                 for v in self.graph.get_neighbors(u):
                     w_uv = self.graph.get_weight(u, v)
                     new_dist = self.d[u] + w_uv
+                    self.stats["relaxations"] += 1
 
                     if new_dist <= self.d[v]:
                         improved = new_dist < self.d[v]
                         self.d[v] = new_dist
                         if improved:
                             self.pred[v] = u
-                        self.stats["relaxations"] += 1
 
                         if u in root_map:
                             root_map[v] = root_map[u]
@@ -402,12 +402,12 @@ class BreakingSortingSSSP(RoutingAlgorithm):
             for v in self.graph.get_neighbors(u):
                 w_uv = self.graph.get_weight(u, v)
                 new_dist = d_u + w_uv
+                self.stats["relaxations"] += 1
 
                 if (new_dist, v) < B_tuple:
                     if new_dist <= self.d[v]:
                         self.d[v] = new_dist
                         self.pred[v] = u
-                        self.stats["relaxations"] += 1
 
                         U_0.add(v)
 
@@ -478,13 +478,13 @@ class BreakingSortingSSSP(RoutingAlgorithm):
                 for v in self.graph.get_neighbors(u):
                     w_uv = self.graph.get_weight(u, v)
                     new_dist = self.d[u] + w_uv
+                    self.stats["relaxations"] += 1
 
                     if new_dist <= self.d[v]:
                         improved = new_dist < self.d[v]
                         self.d[v] = new_dist
                         if improved:
                             self.pred[v] = u
-                        self.stats["relaxations"] += 1
 
                         val_v_tuple = (new_dist, v)
 
