@@ -235,8 +235,8 @@ class NetworkSimulation:
 if __name__ == "__main__":
     # Settings
     # Use a larger graph to make memory diff noticeable
-    N = 10000
-    TOPO = "random_geometric"  # Options: random_geometric, barabasi_albert, grid, fat_tree
+    N = 2000000
+    TOPO = "barabasi_albert"  # Options: random_geometric, barabasi_albert, grid, fat_tree
 
     sim = NetworkSimulation(num_nodes=N, topo_type=TOPO)
 
